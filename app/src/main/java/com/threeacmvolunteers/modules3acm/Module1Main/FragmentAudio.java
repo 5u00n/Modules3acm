@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.threeacmvolunteers.modules3acm.R;
+import com.threeacmvolunteers.modules3acm.SupportClasses.ArrayAdapterAudio;
 import com.threeacmvolunteers.modules3acm.SupportClasses.ArrayAdapterVideo;
 import com.threeacmvolunteers.modules3acm.SupportClasses.Strings;
 
@@ -63,16 +64,11 @@ public class FragmentAudio extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         // Set values for view here
         myRef= FirebaseDatabase.getInstance().getReference("Url/hello");
-        lists= (ListView) view.findViewById(R.id.listview_video_lay_lists);
+        lists= (ListView) view.findViewById(R.id.listview_audio_lay_lists);
         str=new ArrayList<>();
         lists.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                // TextView clickedView = (TextView) view.findViewById(R.id);
-                //  clickedView.setVisibility(View.GONE);
-
-                // ur=Uri.parse((String) clickedView.getText());
 
 
             }
@@ -86,16 +82,15 @@ public class FragmentAudio extends Fragment {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                // DataSnapshot contactSnapshot = dataSnapshot.child("VideoUrl");
+
                 str.clear();
                 for(DataSnapshot urllistS: dataSnapshot.getChildren())
                 {
-                    //str.clear();
                     Strings urllist= urllistS.getValue(Strings.class);
                     str.add(urllist);
                 }
-                ArrayAdapterVideo arrayapt;
-                arrayapt = new ArrayAdapterVideo(getActivity(),str);
+                ArrayAdapterAudio arrayapt;
+                arrayapt = new ArrayAdapterAudio(getActivity(),str);
                 lists.setAdapter(arrayapt);
             }
 

@@ -100,7 +100,7 @@ public class FragmentVideo extends Fragment {
         Date date = new Date();
         dateFormat.format(date);
         Strings str1= new Strings("1","test","testing my code",dateFormat.format(date),timeFormat.format(date),"xxxxxxxx","hello");
-        myRef.child(id).setValue(str1);
+        //myRef.child(id).setValue(str1);
        myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

@@ -24,6 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.threeacmvolunteers.modules3acm.Module0.FragmentAggrement;
 import com.threeacmvolunteers.modules3acm.R;
+import com.threeacmvolunteers.modules3acm.SupportClasses.ArrayAdapterEbook;
 import com.threeacmvolunteers.modules3acm.SupportClasses.ArrayAdapterVideo;
 import com.threeacmvolunteers.modules3acm.SupportClasses.Strings;
 
@@ -65,7 +66,7 @@ public class FragmentEbook extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         // Set values for view here\
         myRef= FirebaseDatabase.getInstance().getReference("Url/hello");
-        lists= (ListView) view.findViewById(R.id.listview_video_lay_lists);
+        lists= (ListView) view.findViewById(R.id.listview_ebook_lay_lists);
         str=new ArrayList<>();
 
 
@@ -97,8 +98,8 @@ public class FragmentEbook extends Fragment {
                     Strings urllist= urllistS.getValue(Strings.class);
                     str.add(urllist);
                 }
-                ArrayAdapterVideo arrayapt;
-                arrayapt = new ArrayAdapterVideo(getActivity(),str);
+                ArrayAdapterEbook arrayapt;
+                arrayapt = new ArrayAdapterEbook(getActivity(),str);
                 lists.setAdapter(arrayapt);
             }
 
