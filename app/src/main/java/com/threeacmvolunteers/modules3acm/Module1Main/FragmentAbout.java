@@ -28,7 +28,7 @@ public class FragmentAbout extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup parent, @Nullable Bundle savedInstanceState) {
 
         // Inflate the xml file for the fragment
-        return inflater.inflate(R.layout.fragment_about, parent, false);
+        return inflater.inflate(R.layout.fragment_about  , parent, false);
     }
 
     @Override

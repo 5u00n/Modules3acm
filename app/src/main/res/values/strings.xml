@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">3ACM</string>
+    <string name="app_name">TEST APP</string>
     <!-- Login Strings-->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>

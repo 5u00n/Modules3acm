@@ -6,6 +6,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.JsonWriter;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.threeacmvolunteers.modules3acm.Module0.FragmentAggrement;
 import com.threeacmvolunteers.modules3acm.R;
 import com.threeacmvolunteers.modules3acm.SupportClasses.ArrayAdapterVideo;
+import com.threeacmvolunteers.modules3acm.SupportClasses.JsonSupport;
 import com.threeacmvolunteers.modules3acm.SupportClasses.Strings;
 
 import java.text.DateFormat;
@@ -100,7 +102,6 @@ public class FragmentVideo extends Fragment {
         Date date = new Date();
         dateFormat.format(date);
         Strings str1= new Strings("1","test","testing my code",dateFormat.format(date),timeFormat.format(date),"xxxxxxxx","hello");
-        //myRef.child(id).setValue(str1);
        myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -110,6 +111,8 @@ public class FragmentVideo extends Fragment {
                 {
                     //str.clear();
                     Strings urllist= urllistS.getValue(Strings.class);
+                    JsonSupport.logJson(urllist);
+                    JsonSupport.saveData(getActivity(),urllist);
                     str.add(urllist);
                 }
                 ArrayAdapterVideo arrayapt;
